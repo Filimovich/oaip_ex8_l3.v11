@@ -3,6 +3,26 @@
 
 using namespace std;
 
+double calculate_row_y(double num);
+double calculate_row_cycle_y(double num);
+double get_num();
+
+int main()
+{
+	cout << "Enter your integer for `n`: ";
+
+	double n = get_num();
+	double result = calculate_row_y(n);
+
+	cout << endl << "The result of y(n) (recursion): " << result << endl;
+
+	result = calculate_row_cycle_y(n);
+
+	cout << endl << "The result of y(n) (cycle): " << result << endl;
+
+	return (0);
+}
+
 double calculate_row_y(double num)
 {
 	if (num == 0)
@@ -54,20 +74,4 @@ double get_num()
 		
 		return (num);
 	} while(1);
-}
-
-int main()
-{
-	cout << "Enter your integer for `n`: ";
-
-	double n = get_num();
-	double result = calculate_row_y(n);
-
-	cout << endl << "The result of y(n) (recursion): " << result << endl;
-
-	result = calculate_row_cycle_y(n);
-
-	cout << endl << "The result of y(n) (cycle): " << result << endl;
-
-	return (0);
 }
