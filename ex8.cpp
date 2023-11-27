@@ -10,6 +10,17 @@ double calculate_row_y(double num)
 	return (1 / (num + calculate_row_y(num - 1)));
 }
 
+double calculate_row_cycle_y(double num)
+{
+	double result = 1 / (1 + 1 / 2.0);
+
+	for (int i = 1; i <= num; i++) {
+		result = 1 / (i + result);
+	}
+
+	return (result);
+}
+
 double get_num()
 {
 	double num;
@@ -52,7 +63,11 @@ int main()
 	double n = get_num();
 	double result = calculate_row_y(n);
 
-	cout << endl << "The result of y(n): " << result << endl;
+	cout << endl << "The result of y(n) (recursion): " << result << endl;
+
+	result = calculate_row_cycle_y(n);
+
+	cout << endl << "The result of y(n) (cycle): " << result << endl;
 
 	return (0);
 }
